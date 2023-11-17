@@ -2,10 +2,14 @@
   "name": "padelback20",
   "description": "```markdown\r # Backend de la Aplicación de Jugadores",
   "version": "1.0.0",
+  "engines": {
+    "node": "20.9.0"
+  },
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
