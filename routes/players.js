@@ -14,6 +14,7 @@ router.post('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
+  console.log('entra en get /');
   Player.find()
     .then(players => res.json(players))
     .catch(err => res.status(500).json({ message: 'Error al obtener los jugadores de la base de datos' }));
