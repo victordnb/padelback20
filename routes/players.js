@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Player = require('../models/player');
+const User = require('../models/user');
+const ligaController = require('../controllers/ligaController');
 
 router.post('/', (req, res) => {
   const newPlayer = new Player({
@@ -59,5 +61,19 @@ router.get('/matches', (req, res) => {
       res.status(500).json({ message: 'Error al obtener los jugadores de la base de datos' });
     });
 });
+
+router.get('/usernames', (req, res) => {
+  User.find().select('username -_id')
+    .then(users => {
+      const usernames = users.map(user => user.username);
+      console.log(usernames); // Agrega esta línea
+      res.json(usernames);
+    })
+    .catch(err => res.status(500).json({ message: 'Error al obtener los nombres de usuario de la base de datos' }));
+});
+
+router.post('/liga', ligaController.guardarLiga);
+
+
 
 module.exports = router;
