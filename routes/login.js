@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
       const token = jwt.sign({ _id: userByName[0]._id }, 'secretKey');
       
       // Devolver el token al cliente junto con los datos del usuario.
-      res.json({ token: token, user: userByName[0].username});
+      res.json({ token: token.toString(), user: userByName[0].username});
     } else {
       // Si la contraseña no es válida, devolver un error
       res.status(400).send('Email o contraseña incorrectos.');

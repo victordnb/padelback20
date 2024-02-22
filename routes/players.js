@@ -74,6 +74,10 @@ router.get('/usernames', (req, res) => {
 
 router.post('/liga', ligaController.guardarLiga);
 
+router.get('/liga/:nombre', ligaController.obtenerLiga);
+
+router.get('/liga/usuario/:username', ligaController.obtenerLigasPorUsername);
+//!TODO: hacer esta arquitectura para todos los endpoints... servicios y controladores.
 
 
 module.exports = router;

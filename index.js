@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(morgan('combined'));
+//app.use(morgan('combined'));
 app.use(express.json());
 app.use('/api/players', playersRouter);
 app.use('/api/register', registerRouter);
