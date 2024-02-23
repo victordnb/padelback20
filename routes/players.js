@@ -79,5 +79,8 @@ router.get('/liga/:nombre', ligaController.obtenerLiga);
 router.get('/liga/usuario/:username', ligaController.obtenerLigasPorUsername);
 //!TODO: hacer esta arquitectura para todos los endpoints... servicios y controladores.
 
+router.put('/liga/:nombre', ligaController.editarPuntos);
+
+
 
 module.exports = router;

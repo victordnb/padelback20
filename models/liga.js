@@ -9,6 +9,13 @@ const ligaSchema = mongoose.Schema({
       username: { type: String, required: true },
       points: { type: Number, default: 0 }
     }
+  ],
+  historialEdiciones: [
+    {
+      fecha: { type: Date, default: Date.now },
+      username: String,
+      points: Number
+    }
   ]
 });
 

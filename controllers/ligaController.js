@@ -2,6 +2,7 @@
 const ligaService = require('../services/ligaService');
 const Liga = require('../models/liga'); // Asegúrate de tener un modelo 'Liga'
 
+
 exports.guardarLiga = (req, res) => {
   const liga = new Liga({
     nombre: req.body.nombre,
@@ -58,4 +59,16 @@ exports.obtenerLigasPorUsername = (req, res) => {
         error: error
       });
     });
+};
+
+exports.editarPuntos = async (req, res) => {
+  try {
+    const { nombre } = req.params;
+    const { username, points } = req.body;
+    const liga = await ligaService.editarPuntos(nombre, username, points);
+    res.json(liga);
+  } catch (error) {
+    console.error(error); // Agrega esta línea para imprimir el error en la consola del servidor
+    res.status(500).json({ message: error.message });
+  }
 };
